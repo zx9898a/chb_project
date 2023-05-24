@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.5.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	
+	<groupId>com.chb</groupId>
+	<artifactId>chb_project</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	
+	<properties>
+		<java.version>1.8</java.version>
+		<spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+	</properties>
+	
+	<modules>
+		<module>chb-web</module>
+		<module>chb-proxy-service</module>
+		<module>chb-core-service</module>
+		<module>chb-core</module>
+		<module>chb-batch</module>
+	</modules>
+	
+	<!-- Spring Cloud dependencies -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	
+	<profiles>
+		<profile>
+			<id>local</id>
+			<activation>
+				<!-- 預設 -->
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<profile.active>local</profile.active>
+			</properties>
+			<!-- <repositories> -->
+			<!-- <repository> -->
+			<!-- <id>chb-repo</id> -->
+			<!-- <name>chb repo</name> -->
+			<!-- <url></url> -->
+			<!-- </repository> -->
+			<!-- </repositories> -->
+		</profile>
+		<profile>
+			<id>chb</id>
+			<properties>
+				<profile.active>chb</profile.active>
+			</properties>
+			<!-- <repositories> -->
+			<!-- <repository> -->
+			<!-- <id>chb-repo</id> -->
+			<!-- <name>chb repo</name> -->
+			<!-- <url></url> -->
+			<!-- </repository> -->
+			<!-- </repositories> -->
+		</profile>
+		<!-- 其他環境設定...... -->
+		<!-- <profile> -->
+		<!-- <id>chb-sit</id> -->
+		<!-- <properties> -->
+		<!-- <profile.active>chb-sit</profile.active> -->
+		<!-- </properties> -->
+		<!-- </profile> -->
+	</profiles>
+	
+</project>
