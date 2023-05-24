@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.chb</groupId>
+		<artifactId>chb_project</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>chb-core-service</artifactId>
+
+	<name>chb-core-service</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.chb</groupId>
+			<artifactId>chb-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.chb</groupId>
+			<artifactId>chb-proxy-service</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
+		<!-- SwaggerUI -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.8.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.8.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.0</version>
+		</dependency>
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.microsoft.sqlserver</groupId> -->
+		<!-- <artifactId>mssql-jdbc</artifactId> -->
+		<!-- </dependency> -->
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.netpro.trinity.web.client</groupId> -->
+		<!-- <artifactId>trinity-webclient</artifactId> -->
+		<!-- <version>20200527-2-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.netpro.trinity.web.client</groupId> -->
+		<!-- <artifactId>WebAPIClient</artifactId> -->
+		<!-- <version>20200527-2-SNAPSHOT</version> -->
+		<!-- <scope>provided</scope> -->
+		<!-- <exclusions> -->
+		<!-- <exclusion> -->
+		<!-- <groupId>*</groupId> -->
+		<!-- <artifactId>*</artifactId> -->
+		<!-- </exclusion> -->
+		<!-- </exclusions> -->
+		<!-- </dependency> -->
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.spotify</groupId> -->
+		<!-- <artifactId>completable-futures</artifactId> -->
+		<!-- <version>0.3.3</version> -->
+		<!-- </dependency> -->
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.github.ulisesbocchio</groupId> -->
+		<!-- <artifactId>jasypt-spring-boot-starter</artifactId> -->
+		<!-- <version>2.0.0</version> -->
+		<!-- </dependency> -->
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<!-- <plugin> -->
+			<!-- <groupId>org.codehaus.mojo</groupId> -->
+			<!-- <artifactId>exec-maven-plugin</artifactId> -->
+			<!-- <version>3.0.0</version> -->
+			<!-- <executions> -->
+			<!-- <execution> -->
+			<!-- <id>run-job</id> -->
+			<!-- <goals> -->
+			<!-- <goal>java</goal> -->
+			<!-- </goals> -->
+			<!-- <configuration> -->
+			<!-- <mainClass>com.sba.trinity.job.RunJob</mainClass> -->
+			<!-- </configuration> -->
+			<!-- </execution> -->
+			<!-- <execution> -->
+			<!-- <id>get-job-frequency</id> -->
+			<!-- <goals> -->
+			<!-- <goal>java</goal> -->
+			<!-- </goals> -->
+			<!-- <configuration> -->
+			<!-- <mainClass>com.sba.trinity.job.GetJobFrquency</mainClass> -->
+			<!-- </configuration> -->
+			<!-- </execution> -->
+			<!-- <execution> -->
+			<!-- <id>add-job-frequency</id> -->
+			<!-- <goals> -->
+			<!-- <goal>java</goal> -->
+			<!-- </goals> -->
+			<!-- <configuration> -->
+			<!-- <mainClass>com.sba.trinity.job.AddJobFrquency</mainClass> -->
+			<!-- </configuration> -->
+			<!-- </execution> -->
+			<!-- <execution> -->
+			<!-- <id>get-task-history</id> -->
+			<!-- <goals> -->
+			<!-- <goal>java</goal> -->
+			<!-- </goals> -->
+			<!-- <configuration> -->
+			<!-- <mainClass>com.sba.trinity.job.GetTaskHistory</mainClass> -->
+			<!-- </configuration> -->
+			<!-- </execution> -->
+			<!-- </executions> -->
+			<!-- </plugin> -->
+		</plugins>
+	</build>
+
+</project>

@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>com.chb</groupId>
+		<artifactId>chb_project</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	
+	<artifactId>chb-batch</artifactId>
+	<packaging>${package.format}</packaging>
+	
+	<name>chb-batch</name>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<!-- 		<start-class>com.chb.CHBBatchApplication</start-class> -->
+	</properties>
+	
+	<dependencies>
+		<dependency>
+			<groupId>com.chb</groupId>
+			<artifactId>chb-core-service</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<finalName>chb-batch</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<excludes>
+					<exclude>application*.properties</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>application.properties</include>
+					<include>application-${profile.active}.properties</include>
+				</includes>
+			</resource>
+		</resources>
+		<plugins>
+			<!-- <plugin> -->
+			<!-- <groupId>org.springframework.boot</groupId> -->
+			<!-- <artifactId>spring-boot-maven-plugin</artifactId> -->
+			<!-- <configuration> -->
+			<!-- <mainClass>com.chb.ncap.BatchApplication</mainClass> -->
+			<!-- </configuration> -->
+			<!-- </plugin> -->
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<archive>
+						<manifest>
+							<mainClass>CHBBatchApplication</mainClass>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+						</manifest>
+					</archive>
+					<webResources>
+						<resource>
+							<directory>${basedir}/src/main/webapp/WEB-INF</directory>
+							<filtering>true</filtering>
+							<targetPath>WEB-INF</targetPath>
+							<includes>
+								<include>**/jboss-web.xml</include>
+							</includes>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>local</id>
+			<activation>
+				<!-- 預設 -->
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<spring.active.profiles>local</spring.active.profiles>
+				<package.format>jar</package.format>
+			</properties>
+			<!-- <repositories> -->
+			<!-- <repository> -->
+			<!-- <id>chb-repo</id> -->
+			<!-- <name>chb repo</name> -->
+			<!-- <url></url> -->
+			<!-- </repository> -->
+			<!-- </repositories> -->
+			<dependencies>
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-web</artifactId>
+				</dependency>
+			</dependencies>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-maven-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>chb</id>
+			<properties>
+				<spring.active.profiles>chb</spring.active.profiles>
+				<package.format>war</package.format>
+			</properties>
+			<!-- <repositories> -->
+			<!-- <repository> -->
+			<!-- <id>chb-repo</id> -->
+			<!-- <name>chb repo</name> -->
+			<!-- <url></url> -->
+			<!-- </repository> -->
+			<!-- </repositories> -->
+			<dependencies>
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-web</artifactId>
+					<exclusions>
+						<exclusion>
+							<groupId>org.apache.tomcat.embed</groupId>
+							<artifactId>tomcat-embed-websocket</artifactId>
+						</exclusion>
+					</exclusions>
+				</dependency>
+			</dependencies>
+		</profile>
+		<!-- 其他環境設定..... -->
+	</profiles>
+	
+</project>
