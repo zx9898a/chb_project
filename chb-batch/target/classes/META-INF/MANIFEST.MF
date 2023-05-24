@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: chb-batch
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Tim
+Implementation-Vendor-Id: com.chb
+Build-Jdk: 1.8.0_202
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/chb_project/chb-batch
+Created-By: Maven Integration for Eclipse
+

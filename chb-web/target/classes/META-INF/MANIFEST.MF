@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: chb-web
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Tim
+Implementation-Vendor-Id: com.chb
+Build-Jdk: 1.8.0_202
+Implementation-URL: http://maven.apache.org
+Created-By: Maven Integration for Eclipse
+Main-Class: com.chb.WebApplication
+
